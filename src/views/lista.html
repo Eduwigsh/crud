@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista</title>
+</head>
+<body>
+    
+     
+        <thead>
+            <tr>
+              <th >ID</th>
+              <th >Nombre</th>
+              <th >correo</th>
+              <th >contraseña</th>
+            </tr>
+          </thead>
+   
+          <%
+          for(i=0; i<lista.length; i++){
+              %>
+        <tr>
+          <td> <%=lista[i].Id_usu%></td>
+          <td> <%=lista[i].nombre%></td>
+          <td> <%=lista[i].correo%></td>
+          <td> <%=lista[i].contraseña%></td>
+        </tr>
+        <% } %>
+</body>
+</html>
