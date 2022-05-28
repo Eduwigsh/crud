@@ -6,18 +6,18 @@ connection = mysql.createConnection(
         user: 'root',
         password: 'f0rmajuerrera',
         database: 'crud'
-
     }
 )
 
 const create = (nombre, correo, contraseña) => {
 
-
-    connection.query('INSERT INTO usuarios SET ?',
+    //tabla a ocupar
+    connection.query('INSERT INTO datos SET ?',
+        //los atributos de la tabla
         {
-            nombre: nombre,
-            correo: correo,
-            contraseña: contraseña
+            fecha: nombre,
+            texto: correo,
+            id_usu: contraseña
         }, (error, results, fields) => {
             if (error) throw error;
             console.log(results.insertId);
@@ -43,16 +43,8 @@ const lista = () => {
     });
 
 }
-function buscar_id(id) {
 
-
-    connection.query('Select * usuarios WHERE id_usu=' + id, (error, results, fields) => {
-        if (error) throw error;
-        return results;
-    });
-
-}
-function borrar(id) {
+const borrar = (id) => {
     connection.query('Delete From usuarios WHERE id_usu=' + id, (error, results, fields) => {
         if (error) throw error;
         return results;
@@ -61,6 +53,6 @@ function borrar(id) {
 
 }
 module.exports.create = create
-//module.exports.borrar = borrar()
+module.exports.borrar = borrar
 module.exports.conexion = connection
 module.exports.update = update

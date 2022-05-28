@@ -37,7 +37,7 @@ router.post('/actualizar', (req, res) => {
 })
 router.get('/lista', (req, res) => {
     con = database.conexion
-    con.query('Select * from usuarios ', (error, results, fields) => {
+    con.query('Select * from usuarios where ', (error, results, fields) => {
         if (error) throw error;
         res.render('lista.html', { lista: results })
 
