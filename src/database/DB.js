@@ -13,12 +13,11 @@ connection = mysql.createConnection(
 const create = (nombre, correo, contraseña) => {
 
     //tabla a ocupar
-    connection.query('INSERT INTO datos SET ?',
-        //los atributos de la tabla
+    connection.query('INSERT INTO usuarios SET ?',
         {
-            fecha: nombre,
-            texto: correo,
-            id_usu: contraseña
+            nombre: nombre,
+            correo: correo,
+            contraseña: contraseña
         }, (error, results, fields) => {
             if (error) throw error;
             console.log(results.insertId);
